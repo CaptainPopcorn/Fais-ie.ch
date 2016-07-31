@@ -95,16 +95,399 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html, body {
+    height: 100%;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------
+   Vestibule
+   --------------------------------------------- */
+
+#vestibule h1 {
+    font-size: 3em;
+}
+
+#page-title {
+    width: 900px;
+    margin: 0 auto;
+}
+
+#page-title h1 {
+    padding: 10px;
+}
+
+#vestibule-content h2 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+
+#vestibule-content {
+    width: 600px;
+    margin: 0 auto;
+}
+
+#vestibule-content > div {
+    padding: 30px 20px;
+}
+
+#localisation-content {
+    display: table;
+}
+
+#cherche-res,
+#localise {
+    display:table-cell;
+    margin: 5px;
+}
+
+#localise {
+    padding: 10px 30px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -o-transition: background-color .3s;
+    transition: background-color .3s;
+}
+
+#localise:hover {
+    background-color: #f5f5f5;
+}
+
+#cherche-res {
+    padding: 0 30px;
+}
+
+#nouveau-salon,
+#resultat-recherche,
+#favoris {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nouveau-salon li,
+#resultat-recherche li,
+#favoris li {
+    padding: 5px 10px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    cursor: pointer;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -o-transition: background-color .3s;
+    transition: background-color .3s;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#nouveau-salon li:last-child,
+#resultat-recherche li:last-child,
+#favoris li:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+#resultat-recherche li,
+#resultat-recherche li:last-child {
+    border-color: transparent;
+}
+
+#nouveau-salon {
+    margin-top: 30px;
+}
+
+#nouveau-salon li:hover,
+#resultat-recherche li:hover,
+#favoris li:hover {
+    background-color: #f5f5f5;
+}
+
+#nouveau-salon li div,
+#resultat-recherche li div,
+#favoris li div {
+    vertical-align: middle;
+}
+
+.color-marker {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    margin: 10px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+
+.icon-marker {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.salon-name {
+    display: inline-block;
+    padding: 5px;
+}
+
+.salon-picker {
+    float: right;
+    height: 45px;
+    width: 45px;
+    padding: 0;
+    border: 0 solid transparent;
+    background-color: transparent;
+}
+
+#trouve-bar {
+    position: relative;
+}
+
+#trouve  {
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    padding: 10px 62px 10px 15px;
+}
+
+#cherche-btn {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px 25px;
+    cursor: pointer;
+}
+
+
+#resultat-recherche {
+    margin-top: 30px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+
+/* Quand c'est plus petit que 900px */
+@media screen and (max-width: 900px) {
+    #page-title {
+        width: 100%;
+    }
+}
+
+/* Quand c'est plus petit que 600px */
+@media screen and (max-width: 600px) {
+    #vestibule-content {
+        width: 100%;
+    }
+    #vestibule h1 {
+        font-size: 2em;
+    }
+    #localisation-content,
+    #cherche-res,
+    #localise {
+        display: block;
+        width: 100%;
+    }
+
+    #cherche-res {
+        padding: 15px 0;
+        margin: 0;
+    }
+    #nouveau-salon li,
+    #favoris li {
+        padding: 0;
+    }
+    .color-marker,
+    .icon-marker {
+        display: none;
+    }
+    .salon-name {
+        padding: 15px 20px;
+        border-left: 5px solid transparent;
+    }
+    .salon-picker {
+        margin: 3px 5px;
+    }
+}
 
 
 
 
+/* ---------------------------------------------
+   Salon
+   --------------------------------------------- */
+
+#salon {
+    height: 100%;
+    position: relative;
+}
+
+#carte-zone {
+    display: inline-block;
+    height: 40%;
+    width: 100%;
+    background-color: blue;
+    padding: 1%;
+}
+
+#carte {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+}
+
+#refresh {
+    display: inline-block;
+    position: absolute;
+    padding: 20px 25px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+#zone-messages {
+    position: absolute;
+    top: 40%;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+}
+
+#messages-box {
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    vertical-align: top;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 140px;
+    z-index: 10;
+}
+
+#zone-messages h1 {
+    display: inline-block;
+    position: absolute;
+    left: 55px;
+    top: 18px;
+    background-color: #fff;
+    z-index: 11;
+    padding: 0 15px;
+}
 
 
+#liste-messages {
+    list-style-type: none;
+    padding: 40px 30px;
+    margin: 0;
+}
+
+.auteur {
+    font-weight: 600;
+}
+
+#liste-messages li {
+    margin-bottom: 10px;
+}
+
+.marqueur {
+    color: #ccc!important;
+}
+
+#message-bar {
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    right: 40px;
+    z-index: 12;
+    padding-left: 60px;
+}
+
+#connection-check {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+
+#message-input {
+    width: 100%;
+    padding: 10px 50px 10px 15px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+#envoyer-message {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    padding: 10px 20px;
+    top: 2px;
+    right: 0;
+}
+
+#envoyer-message:hover {
+    color: #ccc;
+}
 
 
-
-
+/* Quand c'est plus petit que 600px */
+@media screen and (max-width: 600px) {
+    #zone-messages h1 {
+        font-size: 16px;
+        left: 15px;
+        top: 10px;
+        padding: 0 5px;
+    }
+    #messages-box {
+        top: 20px;
+        bottom: 65px;
+        left: 10px;
+        right: 10px;
+    }
+    #message-bar {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding-left: 0;
+    }
+    #liste-messages {
+        list-style-type: none;
+        padding: 40px 10px;
+        margin: 0;
+    }
+    #message-input {
+        border-left: 5px solid darkorange;
+    }
+}
 
 
 
