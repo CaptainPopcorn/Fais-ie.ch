@@ -20,6 +20,7 @@
 
 
         <?php require 'php/vestibule.php' ?>
+	<?php require 'php/salon.php' ?>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.0.min"><\/script>')</script>
